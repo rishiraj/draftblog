@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Hello World of Machine Learning | Rishiraj’s Blog</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Hello World of Machine Learning" />
+<meta name="author" content="Rishiraj Acharya" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="This should be the first step if you’re new to Machine Learning. We’ll also load and understand our data." />
+<meta property="og:description" content="This should be the first step if you’re new to Machine Learning. We’ll also load and understand our data." />
+<link rel="canonical" href="https://rishiraj.github.io/blog/machine%20learning/data%20exploration/2021/08/11/_08_09_Hello_World_of_Machine_Learning.html" />
+<meta property="og:url" content="https://rishiraj.github.io/blog/machine%20learning/data%20exploration/2021/08/11/_08_09_Hello_World_of_Machine_Learning.html" />
+<meta property="og:site_name" content="Rishiraj’s Blog" />
+<meta property="og:image" content="https://rishiraj.github.io/blog/images/nb/decisiontree.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-08-11T00:00:00-05:00" />
+<script type="application/ld+json">
+{"datePublished":"2021-08-11T00:00:00-05:00","url":"https://rishiraj.github.io/blog/machine%20learning/data%20exploration/2021/08/11/_08_09_Hello_World_of_Machine_Learning.html","@type":"BlogPosting","image":"https://rishiraj.github.io/blog/images/nb/decisiontree.png","headline":"Hello World of Machine Learning","dateModified":"2021-08-11T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://rishiraj.github.io/blog/machine%20learning/data%20exploration/2021/08/11/_08_09_Hello_World_of_Machine_Learning.html"},"author":{"@type":"Person","name":"Rishiraj Acharya"},"description":"This should be the first step if you’re new to Machine Learning. We’ll also load and understand our data.","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://rishiraj.github.io/blog/feed.xml" title="Rishiraj's Blog" /><link rel="shortcut icon" type="image/x-icon" href="/blog/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/blog/">Rishiraj&#39;s Blog</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/blog/about/">About Me</a><a class="page-link" href="/blog/search/">Search</a><a class="page-link" href="/blog/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Hello World of Machine Learning</h1><p class="page-description">This should be the first step if you're new to Machine Learning. We'll also load and understand our data.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-08-11T00:00:00-05:00" itemprop="datePublished">
+        Aug 11, 2021
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">Rishiraj Acharya</span></span>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      6 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/blog/categories/#machine learning">machine learning</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/blog/categories/#data exploration">data exploration</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-wrap flex-justify-end">
+          <div class="px-2">
+
+    <a href="https://github.com/rishiraj/blog/tree/master/_notebooks/2021_08_09_Hello_World_of_Machine_Learning.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/blog/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/rishiraj/blog/master?filepath=_notebooks%2F2021_08_09_Hello_World_of_Machine_Learning.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/blog/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/rishiraj/blog/blob/master/_notebooks/2021_08_09_Hello_World_of_Machine_Learning.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/blog/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h1"><a href="#Introduction">Introduction </a></li>
+<li class="toc-entry toc-h1"><a href="#Who's-ML?-I'll-do-you-one-better,-why-is-ML?">Who&#39;s ML? I&#39;ll do you one better, why is ML? </a></li>
+<li class="toc-entry toc-h1"><a href="#Data-Exploration">Data Exploration </a></li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2021_08_09_Hello_World_of_Machine_Learning.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Introduction">
+<a class="anchor" href="#Introduction" aria-hidden="true"><span class="octicon octicon-link"></span></a>Introduction<a class="anchor-link" href="#Introduction"> </a>
+</h1>
+<p>We will start at the very beginning: what exactly is “machine learning”, and how is it used in the real world? We’ll learn the answers to these questions and explore the basics of decision trees, as we start to build a strong foundation for some of the most cutting-edge techniques in data science.</p>
+<p>We’ll learn all about pandas, the primary tool used by data scientists for exploring and manipulating data. Then, we’ll use our new knowledge to examine a dataset of Chicken Tikka Masalas.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Who's-ML?-I'll-do-you-one-better,-why-is-ML?">
+<a class="anchor" href="#Who's-ML?-I'll-do-you-one-better,-why-is-ML?" aria-hidden="true"><span class="octicon octicon-link"></span></a>Who's ML? I'll do you one better, why is ML?<a class="anchor-link" href="#Who's-ML?-I'll-do-you-one-better,-why-is-ML?"> </a>
+</h1>
+<p>Let's pretend for a moment that there's a Chicken Tikka Masala cooking competition and we want to come up with a recipe that will get us the highest rating on a continuous 10-point scale. One approach would just be to use the recipe we have on hand and hope for the best but what if we put our newly acquired machine learning skills to the test. We can do this by finding hundreds, thousands or even millions of different Chicken Tikka Masala recipes and listing out all of their ingredients and corresponding Chicken Tikka Masala cooking competition ratings into a table like this where each row is a recipe and each column is the amount of ingredients in the given recipe.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="n">tikkas</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Rating</th>
+      <th>Chicken</th>
+      <th>Ginger</th>
+      <th>Garlic</th>
+      <th>Onion</th>
+      <th>Tomato</th>
+      <th>Garam Masala</th>
+      <th>Salt</th>
+      <th>Cream</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>8.5</td>
+      <td>2.25</td>
+      <td>2</td>
+      <td>2</td>
+      <td>2.0</td>
+      <td>4</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1.0</td>
+      <td>1.50</td>
+      <td>6</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>12.0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>6.3</td>
+      <td>2.00</td>
+      <td>2</td>
+      <td>3</td>
+      <td>1.5</td>
+      <td>2</td>
+      <td>1</td>
+      <td>0.5</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>5.0</td>
+      <td>4.50</td>
+      <td>1</td>
+      <td>5</td>
+      <td>5.0</td>
+      <td>3</td>
+      <td>1</td>
+      <td>3.0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>8.0</td>
+      <td>2.00</td>
+      <td>2</td>
+      <td>0</td>
+      <td>1.5</td>
+      <td>3</td>
+      <td>2</td>
+      <td>1.0</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>7.0</td>
+      <td>2.00</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0.5</td>
+      <td>4</td>
+      <td>1</td>
+      <td>0.0</td>
+      <td>4</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Then we could fit a decision tree model to this dataset and use it to predict the best combination of ingredients in order to make the highest rated Chicken Tikka Masala. What we're hoping to accomplish by doing this is to use the model we build to uncover or explain the relationship between the inputs (Chicken Tikka Masala ingredients) and the output (Chicken Tikka Masala rating). A common pattern that you're going to see is we:</p>
+<ol>
+<li>Define a model</li>
+<li>Fit a model</li>
+<li>Make predictions</li>
+<li>Validate our model</li>
+</ol>
+<p>When we define a model what you want to do is think to yourself, "what model would I like to use?" Of course, as you develop your machine learning skills, you'll have a wide array of models to choose from and you'll start to develop a sense as to which models will be best suited for any given task. If we want to think about this in more general terms we could abstractly represent a model using code that says <code>my_model = ModelName()</code>.</p>
+<p>Fitting a model is another way to refer to training a model and essentially what we're doing is we're taking the model that we've defined and we're applying that model to our dataset and we're asking it to start pulling out the underlying patterns in the data so an abstract code snippet for what fitting a model might look like is <code>my_model.fit(features, target)</code>.</p>
+<p>Making predictions is what happens once we've built a model and we want to generalize it or extend it or apply it to data that it has never seen before and I know it's kind of silly to talk about what a model sees since technically it's a piece of code and it doesn't have eyes but just roll on me on this one. A general way to write making predictions would be something like <code>my_model.predict(data)</code>.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Data-Exploration">
+<a class="anchor" href="#Data-Exploration" aria-hidden="true"><span class="octicon octicon-link"></span></a>Data Exploration<a class="anchor-link" href="#Data-Exploration"> </a>
+</h1>
+<p>It's always good to know what you're getting into before you start something and one of the best ways to have an idea of what you're getting into is to ask a lot of questions. So let's think for a minute about our Chicken Tikka Masala problem, what we're trying to do is map a Chicken Tikka Masala recipe to its rating. So what we can hypothetically do is go out and collect all of this recipe data for Chicken Tikka Masalas and organize that data into something called a dataframe. Once we have our data organized into a dataframe we can begin to use some python code to ask and answer various questions about our data. Now you can ask almost an infinite number of questions but some of my favorite starting questions are things like, "What are the names of the variables in my data?", "How many variables are in my dataframe?", "How many observations or rows are in my dataframe?". I can also ask things like, "What do the first few rows of my dataframe look like?", "Are there any missing values in my dataframe?". I can even ask, "What's the average value of a numerical variable within my dataframe?".</p>
+<p>Let's try answering some of these questions on our Chicken Tikka Masala dataset by using the Pandas library. So for example if we want to know how many observations and variables or rows and columns are in our dataframe, we can <code>tikkas.shape</code> to see that we have x rows and y columns.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">tikkas</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"/content/tikka.csv"</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="n">tikkas</span><span class="o">.</span><span class="n">shape</span>
+
+<span class="c1"># There are 6 rows and 9 columns in the tikkas dataframe</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(6, 9)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>To look at the names of the variables in our tikkas dataframe we can run <code>tikkas.columns</code>.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="n">tikkas</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>Index(['Rating', 'Chicken', 'Ginger', 'Garlic', 'Onion', 'Tomato',
+       'Garam Masala', 'Salt', 'Cream'],
+      dtype='object')</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>And if we want to look at the first few rows of our dataframe, well then we can use <code>tikkas.head()</code>.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="n">tikkas</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Rating</th>
+      <th>Chicken</th>
+      <th>Ginger</th>
+      <th>Garlic</th>
+      <th>Onion</th>
+      <th>Tomato</th>
+      <th>Garam Masala</th>
+      <th>Salt</th>
+      <th>Cream</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>8.5</td>
+      <td>2.25</td>
+      <td>2</td>
+      <td>2</td>
+      <td>2.0</td>
+      <td>4</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1.0</td>
+      <td>1.50</td>
+      <td>6</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>12.0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>6.3</td>
+      <td>2.00</td>
+      <td>2</td>
+      <td>3</td>
+      <td>1.5</td>
+      <td>2</td>
+      <td>1</td>
+      <td>0.5</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>5.0</td>
+      <td>4.50</td>
+      <td>1</td>
+      <td>5</td>
+      <td>5.0</td>
+      <td>3</td>
+      <td>1</td>
+      <td>3.0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>8.0</td>
+      <td>2.00</td>
+      <td>2</td>
+      <td>0</td>
+      <td>1.5</td>
+      <td>3</td>
+      <td>2</td>
+      <td>1.0</td>
+      <td>3</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>What if there's missing data? We can explore that by running <code>tikkas.isnull().sum()</code>.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="n">tikkas</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+
+<span class="c1"># There are no missing values in the tikkas dataframe</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>Rating          0
+Chicken         0
+Ginger          0
+Garlic          0
+Onion           0
+Tomato          0
+Garam Masala    0
+Salt            0
+Cream           0
+dtype: int64</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We can also get a table with summary values by using <code>tikkas.describe()</code>.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="n">tikkas</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Rating</th>
+      <th>Chicken</th>
+      <th>Ginger</th>
+      <th>Garlic</th>
+      <th>Onion</th>
+      <th>Tomato</th>
+      <th>Garam Masala</th>
+      <th>Salt</th>
+      <th>Cream</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>6.000000</td>
+      <td>6.000000</td>
+      <td>6.000000</td>
+      <td>6.000000</td>
+      <td>6.000000</td>
+      <td>6.000000</td>
+      <td>6.000000</td>
+      <td>6.000000</td>
+      <td>6.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>5.966667</td>
+      <td>2.375000</td>
+      <td>2.333333</td>
+      <td>2.000000</td>
+      <td>1.916667</td>
+      <td>2.666667</td>
+      <td>1.000000</td>
+      <td>2.916667</td>
+      <td>1.666667</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>2.732520</td>
+      <td>1.069462</td>
+      <td>1.861899</td>
+      <td>1.788854</td>
+      <td>1.594261</td>
+      <td>1.505545</td>
+      <td>0.632456</td>
+      <td>4.565267</td>
+      <td>1.632993</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>1.000000</td>
+      <td>1.500000</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
+      <td>0.500000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>5.325000</td>
+      <td>2.000000</td>
+      <td>1.250000</td>
+      <td>1.000000</td>
+      <td>1.125000</td>
+      <td>2.250000</td>
+      <td>1.000000</td>
+      <td>0.625000</td>
+      <td>0.250000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>6.650000</td>
+      <td>2.000000</td>
+      <td>2.000000</td>
+      <td>1.500000</td>
+      <td>1.500000</td>
+      <td>3.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.500000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>7.750000</td>
+      <td>2.187500</td>
+      <td>2.000000</td>
+      <td>2.750000</td>
+      <td>1.875000</td>
+      <td>3.750000</td>
+      <td>1.000000</td>
+      <td>2.500000</td>
+      <td>2.750000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>8.500000</td>
+      <td>4.500000</td>
+      <td>6.000000</td>
+      <td>5.000000</td>
+      <td>5.000000</td>
+      <td>4.000000</td>
+      <td>2.000000</td>
+      <td>12.000000</td>
+      <td>4.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We've covered a ton of information related to the basic data exploration. I hope you've learned something in this blog post. I know I have and I've really enjoyed learning with you. So when you're ready meet me in the next post where we're going to build our first Machine Learning model.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="rishiraj/blog"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/blog/machine%20learning/data%20exploration/2021/08/11/_08_09_Hello_World_of_Machine_Learning.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/blog/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/blog/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/blog/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>Expert in Machine Learning Engineering for Production (MLOps) with specialization in Deep Learning using TensorFlow and AWS.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/rishiraj" title="rishiraj"><svg class="svg-icon grey"><use xlink:href="/blog/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/rishirajacharya" title="rishirajacharya"><svg class="svg-icon grey"><use xlink:href="/blog/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
