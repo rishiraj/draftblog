@@ -10,4 +10,4 @@ Since then I studied Machine Learning extensively focusing on Neural Networks, w
 
 These were some things that you can find about me on the internet, want a secret? I’m a national level Chess player, a swimming champion and I can lecture for hours on the outer reaches of space and the craziness of astrophysics.
 
-<code><b>Warning:</b> If you're a vegetarian and you're easily offended with people discussing meaty food, this site may not be your favorite!</code>
+> **Warning:** If you're a vegetarian and you're easily offended with people discussing meaty food, this site may not be your favorite!
