@@ -153,7 +153,7 @@ window.onload = wrap_img;
 <h1 id="Who's-ML?-I'll-do-you-one-better,-why-is-ML?">
 <a class="anchor" href="#Who's-ML?-I'll-do-you-one-better,-why-is-ML?" aria-hidden="true"><span class="octicon octicon-link"></span></a>Who's ML? I'll do you one better, why is ML?<a class="anchor-link" href="#Who's-ML?-I'll-do-you-one-better,-why-is-ML?"> </a>
 </h1>
-<p>Let's pretend for a moment that there's a Chicken Tikka Masala cooking competition and we want to come up with a recipe that will get us the highest rating on a continuous 10-point scale. One approach would just be to use the recipe we have on hand and hope for the best but what if we put our newly acquired machine learning skills to the test. We can do this by finding hundreds, thousands or even millions of different Chicken Tikka Masala recipes and listing out all of their ingredients and corresponding Chicken Tikka Masala cooking competition ratings into a table like this where each row is a recipe and each column is the amount of ingredients in the given recipe.</p>
+<p>Let's pretend for a moment that there's a Chicken Tikka Masala cooking competition and we want to come up with a recipe that will get us the highest rating on a continuous 10-point scale. One approach would just be to use the recipe we have on hand and hope for the best but instead what if we put our newly acquired machine learning skills to the test. We can do this by finding hundreds, thousands or even millions of different Chicken Tikka Masala recipes and listing out all of their ingredients and corresponding Chicken Tikka Masala cooking competition ratings into a table like this where each row is a recipe and each column is the amount of ingredients in the given recipe.</p>
 
 </div>
 </div>
@@ -297,7 +297,7 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Then we could fit a decision tree model to this dataset and use it to predict the best combination of ingredients in order to make the highest rated Chicken Tikka Masala. What we're hoping to accomplish by doing this is to use the model we build to uncover or explain the relationship between the inputs (Chicken Tikka Masala ingredients) and the output (Chicken Tikka Masala rating). A common pattern that you're going to see is we:</p>
+<p>Then we could fit a decision tree model to this dataset and use it to help predict the best combination of ingredients in order to make the highest rated Chicken Tikka Masala. What we're hoping to accomplish by doing this is to use the model we build to uncover or explain the relationship between the inputs (Chicken Tikka Masala ingredients) and the output (Chicken Tikka Masala rating). A common pattern that you're going to see is that we:</p>
 <ol>
 <li>Define a model</li>
 <li>Fit a model</li>
@@ -318,7 +318,7 @@ window.onload = wrap_img;
 <a class="anchor" href="#Data-Exploration" aria-hidden="true"><span class="octicon octicon-link"></span></a>Data Exploration<a class="anchor-link" href="#Data-Exploration"> </a>
 </h1>
 <p>It's always good to know what you're getting into before you start something and one of the best ways to have an idea of what you're getting into is to ask a lot of questions. So let's think for a minute about our Chicken Tikka Masala problem, what we're trying to do is map a Chicken Tikka Masala recipe to its rating. So what we can hypothetically do is go out and collect all of this recipe data for Chicken Tikka Masalas and organize that data into something called a dataframe. Once we have our data organized into a dataframe we can begin to use some python code to ask and answer various questions about our data. Now you can ask almost an infinite number of questions but some of my favorite starting questions are things like, "What are the names of the variables in my data?", "How many variables are in my dataframe?", "How many observations or rows are in my dataframe?". I can also ask things like, "What do the first few rows of my dataframe look like?", "Are there any missing values in my dataframe?". I can even ask, "What's the average value of a numerical variable within my dataframe?".</p>
-<p>Let's try answering some of these questions on our Chicken Tikka Masala dataset by using the Pandas library. So for example if we want to know how many observations and variables or rows and columns are in our dataframe, we can <code>tikkas.shape</code> to see that we have x rows and y columns.</p>
+<p>Let's try answering some of these questions on our Chicken Tikka Masala dataset by using the Pandas library. So for example if we want to know how many observations and variables or rows and columns are in our dataframe, we can use <code>tikkas.shape</code> to see that we have x rows and y columns.</p>
 
 </div>
 </div>
