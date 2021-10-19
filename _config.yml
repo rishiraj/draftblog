@@ -6,7 +6,7 @@
 # https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
 # https://learnxinyminutes.com/docs/yaml/
 
-title: Rishiraj's Blog
+title: Rishiraj's Blog <img src="https://github.com/TheDudeThatCode/TheDudeThatCode/blob/master/Assets/Hi.gif" width="29px">
 description: Expert in Machine Learning Engineering for Production (MLOps) with specialization in Deep Learning using TensorFlow and AWS.
 github_username: rishiraj
 # you can comment the below line out if your repo name is not different than your baseurl
