@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Äßðµ† Mê
+title: 𝔸𝕓𝕠𝕦𝕥 𝕄𝕖
 permalink: /about/
 ---
 
