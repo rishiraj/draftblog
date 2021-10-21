@@ -1,9 +1,9 @@
 ---
 toc: true
 layout: post
-description: A minimal example of using markdown with fastpages.
+description: ![](https://raw.githubusercontent.com/Platane/snk/output/github-contribution-grid-snake.svg)
 categories: [markdown]
-title: An Example Markdown Post
+title: ![](https://raw.githubusercontent.com/Platane/snk/output/github-contribution-grid-snake.svg)
 ---
 # Example Markdown Post
 
