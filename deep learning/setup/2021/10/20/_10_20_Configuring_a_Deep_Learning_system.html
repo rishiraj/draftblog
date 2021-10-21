@@ -11,14 +11,14 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Setting up a fresh installation of Linux for Deep Learning can be painful even for ML Experts specially for GPU users with CUDA / cuDNN. Not anymore." />
 <meta property="og:description" content="Setting up a fresh installation of Linux for Deep Learning can be painful even for ML Experts specially for GPU users with CUDA / cuDNN. Not anymore." />
-<link rel="canonical" href="https://rishiraj.github.io/blog/deep%20learning/setup/2021/10/19/_10_20_Configuring_a_Deep_Learning_system.html" />
-<meta property="og:url" content="https://rishiraj.github.io/blog/deep%20learning/setup/2021/10/19/_10_20_Configuring_a_Deep_Learning_system.html" />
+<link rel="canonical" href="https://rishiraj.github.io/blog/deep%20learning/setup/2021/10/20/_10_20_Configuring_a_Deep_Learning_system.html" />
+<meta property="og:url" content="https://rishiraj.github.io/blog/deep%20learning/setup/2021/10/20/_10_20_Configuring_a_Deep_Learning_system.html" />
 <meta property="og:site_name" content="ℝ𝕚𝕤𝕙𝕚𝕣𝕒𝕛’𝕤 𝔹𝕝𝕠𝕘" />
 <meta property="og:image" content="https://rishiraj.github.io/blog/images/nb/setup.jpg" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2021-10-19T00:00:00-05:00" />
+<meta property="article:published_time" content="2021-10-20T00:00:00-05:00" />
 <script type="application/ld+json">
-{"datePublished":"2021-10-19T00:00:00-05:00","url":"https://rishiraj.github.io/blog/deep%20learning/setup/2021/10/19/_10_20_Configuring_a_Deep_Learning_system.html","@type":"BlogPosting","image":"https://rishiraj.github.io/blog/images/nb/setup.jpg","headline":"Configuring a Deep Learning system","dateModified":"2021-10-19T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://rishiraj.github.io/blog/deep%20learning/setup/2021/10/19/_10_20_Configuring_a_Deep_Learning_system.html"},"author":{"@type":"Person","name":"Rishiraj Acharya"},"description":"Setting up a fresh installation of Linux for Deep Learning can be painful even for ML Experts specially for GPU users with CUDA / cuDNN. Not anymore.","@context":"https://schema.org"}</script>
+{"datePublished":"2021-10-20T00:00:00-05:00","url":"https://rishiraj.github.io/blog/deep%20learning/setup/2021/10/20/_10_20_Configuring_a_Deep_Learning_system.html","@type":"BlogPosting","image":"https://rishiraj.github.io/blog/images/nb/setup.jpg","headline":"Configuring a Deep Learning system","dateModified":"2021-10-20T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://rishiraj.github.io/blog/deep%20learning/setup/2021/10/20/_10_20_Configuring_a_Deep_Learning_system.html"},"author":{"@type":"Person","name":"Rishiraj Acharya"},"description":"Setting up a fresh installation of Linux for Deep Learning can be painful even for ML Experts specially for GPU users with CUDA / cuDNN. Not anymore.","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://rishiraj.github.io/blog/feed.xml" title="ℝ𝕚𝕤𝕙𝕚𝕣𝕒𝕛'𝕤 𝔹𝕝𝕠𝕘" /><link rel="shortcut icon" type="image/x-icon" href="/blog/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
@@ -73,8 +73,8 @@ window.onload = wrap_img;
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">Configuring a Deep Learning system</h1><p class="page-description">Setting up a fresh installation of Linux for Deep Learning can be painful even for ML Experts specially for GPU users with CUDA / cuDNN. Not anymore.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-10-19T00:00:00-05:00" itemprop="datePublished">
-        Oct 19, 2021
+    <h1 class="post-title p-name" itemprop="name headline">Configuring a Deep Learning system</h1><p class="page-description">Setting up a fresh installation of Linux for Deep Learning can be painful even for ML Experts specially for GPU users with CUDA / cuDNN. Not anymore.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2021-10-20T00:00:00-05:00" itemprop="datePublished">
+        Oct 20, 2021
       </time>• 
           <span itemprop="author" itemscope itemtype="http://schema.org/Person">
             <span class="p-author h-card" itemprop="name">Rishiraj Acharya</span></span>
@@ -141,22 +141,23 @@ window.onload = wrap_img;
 <h1 id="For-both-CPU-/-GPU-users">
 <a class="anchor" href="#For-both-CPU-/-GPU-users" aria-hidden="true"><span class="octicon octicon-link"></span></a>For both CPU / GPU users<a class="anchor-link" href="#For-both-CPU-/-GPU-users"> </a>
 </h1>
-<p><code>wget https://repo.anaconda.com/miniconda/Miniconda3-py39_4.9.2-Linux-x86_64.sh</code><br>
-<code>bash Miniconda3-py39_4.9.2-Linux-x86_64.sh</code></p>
+<pre><code>wget https://repo.anaconda.com/miniconda/Miniconda3-py39_4.9.2-Linux-x86_64.sh
+bash Miniconda3-py39_4.9.2-Linux-x86_64.sh</code></pre>
 <p><strong>Reboot. Test your installation using the command: <code>conda list</code></strong></p>
-<p><code>sudo apt-get update</code><br>
-<code>sudo apt-get upgrade</code><br>
-<code>sudo apt-get install build-essential cmake unzip pkg-config</code><br>
-<code>sudo apt-get install gcc-6 g++-6</code><br>
-<code>sudo apt-get install screen</code><br>
-<code>sudo apt-get install libxmu-dev libxi-dev libglu1-mesa libglu1-mesa-dev</code><br>
-<code>sudo apt-get install libjpeg-dev libpng-dev libtiff-dev</code><br>
-<code>sudo apt-get install libavcodec-dev libavformat-dev libswscale-dev libv4l-dev</code><br>
-<code>sudo apt-get install libxvidcore-dev libx264-dev</code><br>
-<code>sudo apt-get install libopenblas-dev libatlas-base-dev liblapack-dev gfortran</code><br>
-<code>sudo apt-get install libhdf5-serial-dev</code><br>
-<code>sudo apt-get install python3-dev python3-tk python-imaging-tk</code><br>
-<code>sudo apt-get install libgtk-3-dev</code></p>
+
+<pre><code>sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get install build-essential cmake unzip pkg-config
+sudo apt-get install gcc-6 g++-6
+sudo apt-get install screen
+sudo apt-get install libxmu-dev libxi-dev libglu1-mesa libglu1-mesa-dev
+sudo apt-get install libjpeg-dev libpng-dev libtiff-dev
+sudo apt-get install libavcodec-dev libavformat-dev libswscale-dev libv4l-dev
+sudo apt-get install libxvidcore-dev libx264-dev
+sudo apt-get install libopenblas-dev libatlas-base-dev liblapack-dev gfortran
+sudo apt-get install libhdf5-serial-dev
+sudo apt-get install python3-dev python3-tk python-imaging-tk
+sudo apt-get install libgtk-3-dev</code></pre>
 
 </div>
 </div>
@@ -167,30 +168,34 @@ window.onload = wrap_img;
 <h1 id="Only-for-GPU-users">
 <a class="anchor" href="#Only-for-GPU-users" aria-hidden="true"><span class="octicon octicon-link"></span></a>Only for GPU users<a class="anchor-link" href="#Only-for-GPU-users"> </a>
 </h1>
-<p><strong>Add NVIDIA package repositories</strong><br>
-<code>wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/cuda-ubuntu1804.pin</code><br>
-<code>sudo mv cuda-ubuntu1804.pin /etc/apt/preferences.d/cuda-repository-pin-600</code><br>
-<code>sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/7fa2af80.pub</code><br>
-<code>sudo add-apt-repository "deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/ /"</code><br>
-<code>sudo apt-get update</code></p>
-<p><code>wget http://developer.download.nvidia.com/compute/machine-learning/repos/ubuntu1804/x86_64/nvidia-machine-learning-repo-ubuntu1804_1.0.0-1_amd64.deb</code></p>
-<p><code>sudo apt install ./nvidia-machine-learning-repo-ubuntu1804_1.0.0-1_amd64.deb</code><br>
-<code>sudo apt-get update</code></p>
-<p><code>wget https://developer.download.nvidia.com/compute/machine-learning/repos/ubuntu1804/x86_64/libnvinfer7_7.1.3-1+cuda11.0_amd64.deb</code><br>
-<code>sudo apt install ./libnvinfer7_7.1.3-1+cuda11.0_amd64.deb</code><br>
-<code>sudo apt-get update</code></p>
+<p><strong>Add NVIDIA package repositories</strong></p>
+
+<pre><code>wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/cuda-ubuntu1804.pin
+sudo mv cuda-ubuntu1804.pin /etc/apt/preferences.d/cuda-repository-pin-600
+sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/7fa2af80.pub
+sudo add-apt-repository "deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/ /"
+sudo apt-get update
+
+wget http://developer.download.nvidia.com/compute/machine-learning/repos/ubuntu1804/x86_64/nvidia-machine-learning-repo-ubuntu1804_1.0.0-1_amd64.deb
+
+sudo apt install ./nvidia-machine-learning-repo-ubuntu1804_1.0.0-1_amd64.deb
+sudo apt-get update
+
+wget https://developer.download.nvidia.com/compute/machine-learning/repos/ubuntu1804/x86_64/libnvinfer7_7.1.3-1+cuda11.0_amd64.deb
+sudo apt install ./libnvinfer7_7.1.3-1+cuda11.0_amd64.deb
+sudo apt-get update</code></pre>
 <p><strong>Install development and runtime libraries (~4GB)</strong></p>
 
 <pre><code>sudo apt-get install --no-install-recommends \
-  cuda-11-0 \
-  libcudnn8=8.0.4.30-1+cuda11.0  \
-  libcudnn8-dev=8.0.4.30-1+cuda11.0</code></pre>
+    cuda-11-0 \
+    libcudnn8=8.0.4.30-1+cuda11.0  \
+    libcudnn8-dev=8.0.4.30-1+cuda11.0</code></pre>
 <p><strong>Reboot. Check that GPUs are visible using the command: <code>nvidia-smi</code></strong></p>
 <p><strong>Install TensorRT. Requires that libcudnn8 is installed above.</strong></p>
 
 <pre><code>sudo apt-get install -y --no-install-recommends libnvinfer7=7.1.3-1+cuda11.0 \
-  libnvinfer-dev=7.1.3-1+cuda11.0 \
-  libnvinfer-plugin7=7.1.3-1+cuda11.0</code></pre>
+    libnvinfer-dev=7.1.3-1+cuda11.0 \
+    libnvinfer-plugin7=7.1.3-1+cuda11.0</code></pre>
 
 </div>
 </div>
@@ -201,19 +206,19 @@ window.onload = wrap_img;
 <h1 id="For-both-CPU-/-GPU-users">
 <a class="anchor" href="#For-both-CPU-/-GPU-users" aria-hidden="true"><span class="octicon octicon-link"></span></a>For both CPU / GPU users<a class="anchor-link" href="#For-both-CPU-/-GPU-users"> </a>
 </h1>
-<p><code>wget https://bootstrap.pypa.io/get-pip.py</code><br>
-<code>sudo python3 get-pip.py</code><br>
-<code>pip install numpy</code><br>
-<code>pip install tensorflow</code><br>
-<code>pip install opencv-contrib-python</code><br>
-<code>pip install scikit-image</code><br>
-<code>pip install pillow</code><br>
-<code>pip install imutils</code><br>
-<code>pip install scikit-learn</code><br>
-<code>pip install matplotlib</code><br>
-<code>pip install progressbar2</code><br>
-<code>pip install beautifulsoup4</code><br>
-<code>pip install pandas</code></p>
+<pre><code>wget https://bootstrap.pypa.io/get-pip.py
+sudo python3 get-pip.py
+pip install numpy
+pip install tensorflow
+pip install opencv-contrib-python
+pip install scikit-image
+pip install pillow
+pip install imutils
+pip install scikit-learn
+pip install matplotlib
+pip install progressbar2
+pip install beautifulsoup4
+pip install pandas</code></pre>
 
 </div>
 </div>
@@ -230,7 +235,7 @@ window.onload = wrap_img;
         theme="github-light"
         crossorigin="anonymous"
         async>
-</script><a class="u-url" href="/blog/deep%20learning/setup/2021/10/19/_10_20_Configuring_a_Deep_Learning_system.html" hidden></a>
+</script><a class="u-url" href="/blog/deep%20learning/setup/2021/10/20/_10_20_Configuring_a_Deep_Learning_system.html" hidden></a>
 </article>
       </div>
     </main><footer class="site-footer h-card">
