@@ -11,14 +11,14 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Setting up a fresh installation of Linux for Deep Learning can be painful even for ML Experts specially for GPU users with CUDA / cuDNN. Not anymore." />
 <meta property="og:description" content="Setting up a fresh installation of Linux for Deep Learning can be painful even for ML Experts specially for GPU users with CUDA / cuDNN. Not anymore." />
-<link rel="canonical" href="https://rishiraj.github.io/blog/deep%20learning/setup/2021/10/20/_10_20_Configuring_a_Deep_Learning_system.html" />
-<meta property="og:url" content="https://rishiraj.github.io/blog/deep%20learning/setup/2021/10/20/_10_20_Configuring_a_Deep_Learning_system.html" />
+<link rel="canonical" href="https://rishiraj.github.io/blog/deep%20learning/setup/2021/10/20/Configuring-a-Deep-Learning-system.html" />
+<meta property="og:url" content="https://rishiraj.github.io/blog/deep%20learning/setup/2021/10/20/Configuring-a-Deep-Learning-system.html" />
 <meta property="og:site_name" content="ℝ𝕚𝕤𝕙𝕚𝕣𝕒𝕛’𝕤 𝔹𝕝𝕠𝕘" />
 <meta property="og:image" content="https://rishiraj.github.io/blog/images/nb/setup.jpg" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2021-10-20T00:00:00-05:00" />
 <script type="application/ld+json">
-{"datePublished":"2021-10-20T00:00:00-05:00","url":"https://rishiraj.github.io/blog/deep%20learning/setup/2021/10/20/_10_20_Configuring_a_Deep_Learning_system.html","@type":"BlogPosting","image":"https://rishiraj.github.io/blog/images/nb/setup.jpg","headline":"Configuring a Deep Learning system","dateModified":"2021-10-20T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://rishiraj.github.io/blog/deep%20learning/setup/2021/10/20/_10_20_Configuring_a_Deep_Learning_system.html"},"author":{"@type":"Person","name":"Rishiraj Acharya"},"description":"Setting up a fresh installation of Linux for Deep Learning can be painful even for ML Experts specially for GPU users with CUDA / cuDNN. Not anymore.","@context":"https://schema.org"}</script>
+{"datePublished":"2021-10-20T00:00:00-05:00","url":"https://rishiraj.github.io/blog/deep%20learning/setup/2021/10/20/Configuring-a-Deep-Learning-system.html","@type":"BlogPosting","image":"https://rishiraj.github.io/blog/images/nb/setup.jpg","headline":"Configuring a Deep Learning system","dateModified":"2021-10-20T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://rishiraj.github.io/blog/deep%20learning/setup/2021/10/20/Configuring-a-Deep-Learning-system.html"},"author":{"@type":"Person","name":"Rishiraj Acharya"},"description":"Setting up a fresh installation of Linux for Deep Learning can be painful even for ML Experts specially for GPU users with CUDA / cuDNN. Not anymore.","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://rishiraj.github.io/blog/feed.xml" title="ℝ𝕚𝕤𝕙𝕚𝕣𝕒𝕛'𝕤 𝔹𝕝𝕠𝕘" /><link rel="shortcut icon" type="image/x-icon" href="/blog/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
@@ -102,19 +102,19 @@ window.onload = wrap_img;
         <div class="pb-5 d-flex flex-wrap flex-justify-end">
           <div class="px-2">
 
-    <a href="https://github.com/rishiraj/blog/tree/master/_notebooks/2021_10_20_Configuring_a_Deep_Learning_system.ipynb" role="button" target="_blank">
+    <a href="https://github.com/rishiraj/blog/tree/master/_notebooks/2021-10-20-Configuring-a-Deep-Learning-system.ipynb" role="button" target="_blank">
 <img class="notebook-badge-image" src="/blog/assets/badges/github.svg" alt="View On GitHub">
     </a>
 </div>
 
           <div class="px-2">
-    <a href="https://mybinder.org/v2/gh/rishiraj/blog/master?filepath=_notebooks%2F2021_10_20_Configuring_a_Deep_Learning_system.ipynb" target="_blank">
+    <a href="https://mybinder.org/v2/gh/rishiraj/blog/master?filepath=_notebooks%2F2021-10-20-Configuring-a-Deep-Learning-system.ipynb" target="_blank">
         <img class="notebook-badge-image" src="/blog/assets/badges/binder.svg" alt="Open In Binder"/>
     </a>
 </div>
 
           <div class="px-2">
-    <a href="https://colab.research.google.com/github/rishiraj/blog/blob/master/_notebooks/2021_10_20_Configuring_a_Deep_Learning_system.ipynb" target="_blank">
+    <a href="https://colab.research.google.com/github/rishiraj/blog/blob/master/_notebooks/2021-10-20-Configuring-a-Deep-Learning-system.ipynb" target="_blank">
         <img class="notebook-badge-image" src="/blog/assets/badges/colab.svg" alt="Open In Colab"/>
     </a>
 </div>
@@ -130,7 +130,7 @@ window.onload = wrap_img;
 #################################################
 ### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
 #################################################
-# file to edit: _notebooks/2021_10_20_Configuring_a_Deep_Learning_system.ipynb
+# file to edit: _notebooks/2021-10-20-Configuring-a-Deep-Learning-system.ipynb
 -->
 
 <div class="container" id="notebook-container">
@@ -235,7 +235,7 @@ pip install pandas</code></pre>
         theme="github-light"
         crossorigin="anonymous"
         async>
-</script><a class="u-url" href="/blog/deep%20learning/setup/2021/10/20/_10_20_Configuring_a_Deep_Learning_system.html" hidden></a>
+</script><a class="u-url" href="/blog/deep%20learning/setup/2021/10/20/Configuring-a-Deep-Learning-system.html" hidden></a>
 </article>
       </div>
     </main><footer class="site-footer h-card">
