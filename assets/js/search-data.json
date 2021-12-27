@@ -4,9 +4,9 @@
         "post0": {
             "title": "Install and configure HTTPS certificate",
             "content": "Installing Nginx . sudo apt update sudo apt install nginx . Setting up virtual host . cd /etc/nginx/sites-available sudo rm default sudo nano proxy.conf . server { listen 80; server_name &lt;hostname&gt;; location / { proxy_pass http://localhost:6789; } } . cd /etc/nginx/sites-enabled sudo rm default sudo ln -s /etc/nginx/sites-available/proxy.conf /etc/nginx/sites-enabled/ . Activating virtual host . sudo service nginx restart . Ensure that your version of snapd is up to date . sudo snap install core; sudo snap refresh core . Install Certbot . sudo snap install --classic certbot . Prepare the Certbot command . sudo ln -s /snap/bin/certbot /usr/bin/certbot . Get and install your certificates . sudo certbot --nginx . Test automatic renewal . sudo certbot renew --dry-run .",
-            "url": "https://rishiraj.github.io/blog/ubuntu/setup/2021/12/26/_12_27_Install_and_configure_HTTPS_certificate.html",
-            "relUrl": "/ubuntu/setup/2021/12/26/_12_27_Install_and_configure_HTTPS_certificate.html",
-            "date": " • Dec 26, 2021"
+            "url": "https://rishiraj.github.io/blog/ubuntu/setup/2021/12/27/Install-and-configure-HTTPS-certificate.html",
+            "relUrl": "/ubuntu/setup/2021/12/27/Install-and-configure-HTTPS-certificate.html",
+            "date": " • Dec 27, 2021"
         }
         
     
